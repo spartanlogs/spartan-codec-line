@@ -3,6 +3,7 @@ package codecs
 import (
 	"io"
 
+	"github.com/spartanlogs/spartan/codecs"
 	"github.com/spartanlogs/spartan/event"
 )
 
@@ -10,10 +11,10 @@ import (
 type LineCodec struct{}
 
 func init() {
-	Register("line", newLineCodec)
+	codecs.Register("line", newLineCodec)
 }
 
-func newLineCodec() (Codec, error) {
+func newLineCodec() (codecs.Codec, error) {
 	return &LineCodec{}, nil
 }
 

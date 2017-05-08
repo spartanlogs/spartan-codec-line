@@ -38,7 +38,9 @@ func newLineCodec(options utils.InterfaceMap) (codecs.Codec, error) {
 }
 
 func (c *LineCodec) setConfig(options utils.InterfaceMap) error {
-	if err := config.VerifySettings(options, lineConfigSchema); err != nil {
+	var err error
+	options, err = config.VerifySettings(options, lineConfigSchema)
+	if err != nil {
 		return err
 	}
 
